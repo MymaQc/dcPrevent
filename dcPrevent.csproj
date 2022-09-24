@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61C71720-07CF-4043-9867-1EEA1FFDC18D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>dcPrevent</RootNamespace>
+    <AssemblyName>dcPrevent</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App.Designer.cs">
+      <DependentUpon>App.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GMA\Hook.cs" />
+    <Compile Include="GMA\HotKeys\HotKeyArgs.cs" />
+    <Compile Include="GMA\HotKeys\HotKeySet.cs" />
+    <Compile Include="GMA\HotKeys\HotKeySetCollection.cs" />
+    <Compile Include="GMA\IKeyboardEvents.cs" />
+    <Compile Include="GMA\IKeyboardMouseEvents.cs" />
+    <Compile Include="GMA\IMouseEvents.cs" />
+    <Compile Include="GMA\Implementation\AppEventFacade.cs" />
+    <Compile Include="GMA\Implementation\AppKeyListener.cs" />
+    <Compile Include="GMA\Implementation\AppMouseListener.cs" />
+    <Compile Include="GMA\Implementation\BaseListener.cs" />
+    <Compile Include="GMA\Implementation\ButtonSet.cs" />
+    <Compile Include="GMA\Implementation\Callback.cs" />
+    <Compile Include="GMA\Implementation\EventFacade.cs" />
+    <Compile Include="GMA\Implementation\GlobalEventFacade.cs" />
+    <Compile Include="GMA\Implementation\GlobalKeyListener.cs" />
+    <Compile Include="GMA\Implementation\GlobalMouseListener.cs" />
+    <Compile Include="GMA\Implementation\KeyboardState.cs" />
+    <Compile Include="GMA\Implementation\KeyListener.cs" />
+    <Compile Include="GMA\Implementation\MouseListener.cs" />
+    <Compile Include="GMA\Implementation\NativeMethods.cs" />
+    <Compile Include="GMA\Implementation\Subscribe.cs" />
+    <Compile Include="GMA\KeyEventArgsExt.cs" />
+    <Compile Include="GMA\KeyPressEventArgsExt.cs" />
+    <Compile Include="GMA\MouseEventExtArgs.cs" />
+    <Compile Include="GMA\WinApi\AppMouseStruct.cs" />
+    <Compile Include="GMA\WinApi\CallbackData.cs" />
+    <Compile Include="GMA\WinApi\HookHelper.cs" />
+    <Compile Include="GMA\WinApi\HookIds.cs" />
+    <Compile Include="GMA\WinApi\HookNativeMethods.cs" />
+    <Compile Include="GMA\WinApi\HookProcedure.cs" />
+    <Compile Include="GMA\WinApi\HookProcedureHandle.cs" />
+    <Compile Include="GMA\WinApi\HookResult.cs" />
+    <Compile Include="GMA\WinApi\HotkeysNativeMethods.cs" />
+    <Compile Include="GMA\WinApi\KeyboardHookStruct.cs" />
+    <Compile Include="GMA\WinApi\KeyboardNativeMethods.cs" />
+    <Compile Include="GMA\WinApi\Messages.cs" />
+    <Compile Include="GMA\WinApi\MouseNativeMethods.cs" />
+    <Compile Include="GMA\WinApi\MouseStruct.cs" />
+    <Compile Include="GMA\WinApi\Point.cs" />
+    <Compile Include="GMA\WinApi\ThreadNativeMethods.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="App.resx">
+      <DependentUpon>App.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
